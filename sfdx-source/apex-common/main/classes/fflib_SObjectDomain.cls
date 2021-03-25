@@ -55,7 +55,7 @@ public virtual inherited sharing class fflib_SObjectDomain
 				}
 			}
 
-			return Records;
+			return result;
 		}
 
 		private set;
