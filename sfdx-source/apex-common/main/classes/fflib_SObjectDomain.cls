@@ -44,7 +44,22 @@ public virtual inherited sharing class fflib_SObjectDomain
 	/**
 	 * Provides access to the data represented by this domain class
 	 **/
-	public List<SObject> Records { get; private set;}
+	public List<SObject> Records {
+		get {
+			List<SObject> result = Records.clone();
+			result.clear();
+
+			for(SObject record : Records) {
+				if(!record.hasErrors()) {
+					result.add(record);
+				}
+			}
+
+			return Records;
+		}
+
+		private set;
+	}
 
 
 	/**
